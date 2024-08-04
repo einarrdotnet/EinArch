@@ -41,7 +41,7 @@ mount /dev/sda4 /mnt/home
 pacstrap /mnt linux linux-firmware base base-devel git neovim
 
 #Generate file system table with UUID's
-genfstab -U /mnt >> /etc/fstab
+genfstab -U /mnt >> /mnt/etc/fstab
 
 #Clone EinArch files to root directory for stage2
 git clone https://github.com/einarrdotnet/EinArch /mnt/EinArch
