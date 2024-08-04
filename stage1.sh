@@ -36,3 +36,17 @@ mount /dev/sda1 /mnt/boot/efi
 
 #Mount home Partition
 mount /dev/sda4 /mnt/home
+
+#Run pacstrap command on /mnt to install basic packages
+pacstrap /mnt linux linux-firmware base base-devel git neovim
+
+#Generate file system table with UUID's
+genfstab -U /mnt >> /etc/fstab
+
+#Clone EinArch files to root directory for stage2
+git clone https://github.com/einarrdotnet/EinArch /mnt/EinArch
+
+#chroot into the installation
+arch-chroot /mnt
+
+#Move on stage2
