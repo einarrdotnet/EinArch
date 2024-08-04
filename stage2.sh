@@ -23,3 +23,11 @@ locale-gen
 
 #Set the LANG variable
 echo "LANG=en_NZ.UTF-8" >> /etc/locale.conf
+
+#Set Hostname
+echo "Einarr-Desktop" >> /etc/hostname
+
+#Set hosts file (Network configuration)
+echo "127.0.0.1 localhost" >> /etc/hosts
+echo "::1 localhost" >> /etc/hosts
+echo "127.0.1.1 Einarr-Desktop.localdomain Einarr-Desktop" >> /etc/hosts
