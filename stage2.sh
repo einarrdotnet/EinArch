@@ -11,4 +11,15 @@
 
 #!/bin/bash
 
+#Set the timezone to Pacific/Auckland (New Zealand)
+ln -sf /usr/share/zoneinfo/Pacific/Auckland /etc/localtime
 
+#Set the hardware clock to the system clock
+hwclock --systohc
+
+#Set the locale to en_NZ.UTF-8
+sed -i '164s/.//' /etc/locale.gen
+locale-gen
+
+#Set the LANG variable
+echo "LANG=en_NZ.UTF-8" >> /etc/locale.conf
