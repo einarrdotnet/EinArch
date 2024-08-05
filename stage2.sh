@@ -11,6 +11,22 @@
 
 #!/bin/bash
 
+#Prompt user for hostname
+printf "\e[1;32mPlease provide a host name for the system.\e[0m\n"
+read -p "Hostname: " hostname
+
+#Prompt user for username
+printf "\e[1;32mPlease provide a user name (this will be the name you login with when installation is complete)"
+read -p "Username: " username
+
+#Prompt user for root password
+printf '\e[1;31mPlease provide a\e[33m "root" \e[31mpassword\n' 
+read -ps "Root Password: " rootpassword
+
+#prompt user for user password
+printf '\e[1;31mPlease provide a user password for the user \e[33m"'$username'"\e[0m\n'
+read -ps "User Password:" userpassword
+
 #Set the timezone to Pacific/Auckland (New Zealand)
 ln -sf /usr/share/zoneinfo/Pacific/Auckland /etc/localtime
 
@@ -31,3 +47,5 @@ echo "Einarr-Desktop" >> /etc/hostname
 echo "127.0.0.1 localhost" >> /etc/hosts
 echo "::1 localhost" >> /etc/hosts
 echo "127.0.1.1 Einarr-Desktop.localdomain Einarr-Desktop" >> /etc/hosts
+
+
