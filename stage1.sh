@@ -48,11 +48,11 @@ git clone https://github.com/einarrdotnet/EinArch /mnt/EinArch
 chmod +x /mnt/EinArch/stage2.sh
 
 #completion message
-printf '\e[1;32mEinArch stage1 installation complete.
+printf '\n\e[1;32mEinArch stage1 installation complete.
 \e[31mYou have now been chrooted into the new system.\n
 \e[36mTo complete the install of Arch Linux (install bootloader etc)
-run the stage 2 script by typing\e[33m "./EinArchstage2.sh" \e[36m(it has already been made executable)
-and pressing Enter\e[0m\n\n'
+run the stage 2 script by typing\e[33m "./EinArchstage2.sh" 
+\e[36m(it has already been made executable) and pressing Enter\e[0m\n\n'
 
 #chroot into the installation
 arch-chroot /mnt
