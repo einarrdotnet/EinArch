@@ -48,4 +48,12 @@ echo "127.0.0.1 localhost" >> /etc/hosts
 echo "::1 localhost" >> /etc/hosts
 echo "127.0.1.1 Einarr-Desktop.localdomain Einarr-Desktop" >> /etc/hosts
 
+#Install base system packages for bootloader,network manager etc
+pacman -S --noconfirm grub efibootmgr dosfstools mtools os-prober networkmanager bash-completion
 
+#Configure Grub bootloader
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+grub-mkconfig -o /boot/grub/grub.cfg
+
+#Enable Network Manager on startup
+systemctl enable NetworkManager
