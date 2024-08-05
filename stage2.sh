@@ -20,7 +20,7 @@ printf "\e[1;32mPlease provide a user name (this will be the name you login with
 read -p "Username: " username
 
 #Prompt user for root password
-printf '\e[1;31mPlease provide a\e[33m "root" \e[31mpassword\n' 
+printf '\e[1;31mPlease provide a\e[33m "root" \e[31mpassword\e[0m\n' 
 read -sp "Root Password: " rootpassword
 
 #prompt user for user password
@@ -57,3 +57,10 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 #Enable Network Manager on startup
 systemctl enable NetworkManager
+
+#set users paswords and user according to variables
+echo root:$rootpassword | chpasswd
+useradd -m $username
+$username:$userpassword | chpasswd
+usermod -aG wheel,audio,video,power,storage $username
+sed -i '114s/.//' /etc/sudoers
