@@ -61,6 +61,6 @@ systemctl enable NetworkManager
 #set users paswords and user according to variables
 echo root:$rootpassword | chpasswd
 useradd -m $username
-$username:$userpassword | chpasswd
+echo $username:$userpassword | chpasswd
 usermod -aG wheel,audio,video,power,storage $username
 sed -i '114s/.//' /etc/sudoers
