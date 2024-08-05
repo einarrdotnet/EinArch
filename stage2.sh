@@ -16,16 +16,16 @@ printf "\e[1;32mPlease provide a host name for the system.\e[0m\n"
 read -p "Hostname: " hostname
 
 #Prompt user for username
-printf "\e[1;32mPlease provide a user name (this will be the name you login with when installation is complete)"
+printf "\e[1;32mPlease provide a user name (this will be the name you login with when installation is complete)\e[0m\n"
 read -p "Username: " username
 
 #Prompt user for root password
 printf '\e[1;31mPlease provide a\e[33m "root" \e[31mpassword\n' 
-read -ps "Root Password: " rootpassword
+read -sp "Root Password: " rootpassword
 
 #prompt user for user password
 printf '\e[1;31mPlease provide a user password for the user \e[33m"'$username'"\e[0m\n'
-read -ps "User Password:" userpassword
+read -sp "User Password:" userpassword
 
 #Set the timezone to Pacific/Auckland (New Zealand)
 ln -sf /usr/share/zoneinfo/Pacific/Auckland /etc/localtime
