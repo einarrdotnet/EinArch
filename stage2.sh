@@ -109,11 +109,12 @@ printf '\n\e[1;32mEinArch stage 2 install complete
 sleep 2
 pacman -S --noconfirm xorg lightdm lightdm-slick-greeter alacritty cinnamon
 systemctl enable lightdm
+sed -i '102s/.//' /etc/lightdm/lightdm.conf
 sed -i 's/example-gtk-gnome/lightdm-slick-greeter/' /etc/lightdm/lightdm.conf
 mkdir -p /home/$username/{Downloads/Gitclones,Documents,Music,Pictures,Projects}
 chown -R $username:$username /home/$username/*
 rm -rf /EinArch
-printf '\n\e [1;36mDesktop installation complete, type \e[33m"rebot" 
+printf '\n\e[1;36mDesktop installation complete, type \e[33m"rebot" 
 \e[36m to restart your pc and loading into you new desktop\e[0m\n\n'
 
 exit
