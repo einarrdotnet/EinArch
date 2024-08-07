@@ -19,51 +19,46 @@ read -p "Hostname: " hostname
 printf "\e[1;32mPlease provide a user name (this will be the name you login with when installation is complete)\e[0m\n"
 read -p "Username: " username
 
-#Prompt user for root password
-#printf '\e[1;31mPlease provide a\e[33m "root" \e[31mpassword\e[0m\n' 
-#read -sp "Root Password: " rootpassword
 
-#prompt user for user password
-#printf '\e[1;31mPlease provide a user password for the user \e[33m"'$username'"\e[0m\n'
-#read -sp "User Password:" userpassword
-
-#Prompt user for Password (Root Account)
+#Set password for Root account
 vrp=0
 while [ vrp=0 ]
 do
+	#Prompt user to set password for root account
 	printf '\e[1;36mPease provide a password for the \e[33m"root"\e[36m system account.\e[0m\n'
 	read -sp "password: " rp1
+	#Prompt user to verify password for root account
 	printf '\n\e[1;36mPlease verify password for the\e[33m "root"\e[36m system account.\e[0m\n'
 	read -sp "Verify Password: " rp2
 
 	if [ "$rp1" != "$rp2" ]; then 
 		vrp=0
-		printf "\n\e[1;31mPasswords do match please try again\e[0m\n\n"
+		printf "\n\e[1;31mError: Passwords do match please try again\e[0m\n\n"
 	else
 		rootpassword=$rp1
-		printf "\n\e[1;32mRoot password set\e[0m\n\n"
+		printf '\n\e[1;32mPassword has been set for\e[33m"root"\e36m system account\e[0m\n\n'
 	
 		break
 	fi
 done
 
-#Prompt user for password for User account
+#Set Password for user account
 vup=0
 while [ vup=0 ]
 do
-	printf '\e[1;36mPease provide a password for the \e[33m"'$username'"\e[36m User account.\e[0m\n'
+	#promt user to set password for user account
+	printf '\e[1;36mPease provide a password for the user account \e[33m"'$username'"\e[36m.\e[0m\n'
 	read -sp "password: " up1
-	echo ""
-	printf '\e[1;36mPlease verify user Password.\e[0m\n'
+	#prompt user to verify password for user account
+	printf '\n\e[1;36mPlease verify password. for the user account \e[33m"'$username'"\e[36m\e[0m\n'
 	read -sp "Verify Password: " up2
-	echo ""
 
 	if [ "$up1" != "$up2" ]; then 
-		printf "\e[1;31mPasswords do not match please try again\e[0m\n\n"
+		printf "\n\e[1;31mError: Passwords do not match please try again\e[0m\n\n"
 		vup=0
 	else
 		userpassword=$up1
-		printf "\e[1;32muser pasword set\e[0m\n\n"
+		printf '\n\e[1;32Pasword has set for the user account \e[33m"'$username'".\e[0m\n\n'
 		break
 	fi
 done
