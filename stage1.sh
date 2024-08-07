@@ -44,7 +44,9 @@ pacstrap /mnt linux linux-firmware base base-devel git neovim
 genfstab -U /mnt >> /mnt/etc/fstab
 
 #Clone EinArch files to root directory for stage2
-git clone https://github.com/einarrdotnet/EinArch /mnt/EinArch
+mkdir /mnt/EinArch
+cp EinArch/stage2.sh /mnt/EinArch/.
+#git clone https://github.com/einarrdotnet/EinArch /mnt/EinArch
 chmod +x /mnt/EinArch/stage2.sh
 
 #completion message
