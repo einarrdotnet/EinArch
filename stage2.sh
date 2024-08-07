@@ -103,9 +103,25 @@ echo $username:$userpassword | chpasswd
 usermod -aG wheel,audio,video,power,storage $username
 sed -i '114s/.//' /etc/sudoers
 
-printf '\n\e[1;32mEinArch stage 2 install complete.
-\e[36mTo reboot into your new system type \e[33m"exit" \e[36mand hit\e[33m "enter"
-\e[36myou must then unmount your drives by typing \e[33m"umount -l /mnt" \e[36m and hit \e[33m"enter"
-\e[36mfinally type \e[33m"reboot" \e[36m and hit \e[33m "enter"
-\e[31mNote: this will boot you into a tty console command prompt, installing desktop functionallity is comming soon.\e[0m\n
-'
+
+printf '\n\e[1;32mEinArch stage 2 install complete
+\e[36m a working desktop will now be installed (cinnamon by default)\e[0m\n'
+sleep 2
+pacman -S --noconfirm xorg lightdm lightdm-slick-greeter alacritty cinnamon
+systemctl enable lightdm
+sed -i 's/example-gtk-gnome/lightdm-slick-greeter'
+mkdir -p /home/$username/{Downloads/Gitclones,Documents,Music,Pictures,Projects}
+chown -R $username:$username /home/$username/*
+rm -rf /EinArch
+printf '\n\e 1;[36mDesktop installation complete, type /e[33m"rebot" 
+/e[36m to restart your pc and loading into you new desktop'
+exit
+
+
+
+#printf '\n\e[1;32mEinArch stage 2 install complete.
+#\e[36mTo reboot into your new system type \e[33m"exit" \e[36mand hit\e[33m "enter"
+#\e[36myou must then unmount your drives by typing \e[33m"umount -l /mnt" \e[36m and hit \e[33m"enter"
+#\e[36mfinally type \e[33m"reboot" \e[36m and hit \e[33m "enter"
+#\e[31mNote: this will boot you into a tty console command prompt, installing desktop functionallity is comming soon.\e[0m\n
+#'
