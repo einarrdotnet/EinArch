@@ -36,7 +36,7 @@ do
 		printf "\n\e[1;31mError: Passwords do match please try again\e[0m\n\n"
 	else
 		rootpassword=$rp1
-		printf '\n\e[1;32mPassword has been set for\e[33m "root"\e[32m system account\e[0m\n\n'
+		printf '\n\e[1;32mPassword has been set for\e[33m "root"\e[32m system account.\e[0m\n\n'
 	
 		break
 	fi
