@@ -103,9 +103,9 @@ echo $username:$userpassword | chpasswd
 usermod -aG wheel,audio,video,power,storage $username
 sed -i '114s/.//' /etc/sudoers
 
-printf '\n\e1;32mEinArch stage 2 install complete.
+printf '\n\e[1;32mEinArch stage 2 install complete.
 \e[36mTo reboot into your new system type \e[33m"exit" \e[36mand hit\e[33m "enter"
-\e[36m you must then unmount your drives by typing \e33m"umount -l /mnt" \e[36m and hit \e[33m"enter"
-\e[36mfinally type \e[33m"reboot" \e[36m and hit \[33m "enter"
+\e[36myou must then unmount your drives by typing \e[33m"umount -l /mnt" \e[36m and hit \e[33m"enter"
+\e[36mfinally type \e[33m"reboot" \e[36m and hit \e[33m "enter"
 \e[31mNote: this will boot you into a tty console command prompt, installing desktop functionallity is comming soon.\e[0m\n
 '
