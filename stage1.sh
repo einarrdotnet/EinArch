@@ -44,8 +44,10 @@ pacstrap /mnt linux linux-firmware base base-devel git neovim
 genfstab -U /mnt >> /mnt/etc/fstab
 
 #Clone EinArch files to root directory for stage2
-mkdir /mnt/EinArch
+mkdir -p /mnt/EinArch/cinnamon-desktop-files/{themes,icons}
 cp EinArch/stage2.sh /mnt/EinArch/.
+cp -r EinArch/cinnamon-desktop-files/themes/* /mnt/EinArch/cinnamon-desktop-files/themes/.
+cp -r EinArch/cinnamon-desktop-files/icons/* /mnt/EinArch/cinnamon-desktop-files/icons/.
 #git clone https://github.com/einarrdotnet/EinArch /mnt/EinArch
 chmod +x /mnt/EinArch/stage2.sh
 
