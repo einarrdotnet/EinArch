@@ -12,11 +12,11 @@
 #!/bin/bash
 
 #Prompt user for hostname
-printf "\e[1;32mPlease provide a host name for the system.\e[0m\n"
+printf "\e[1;36mPlease provide a host name for the system.\e[0m\n"
 read -p "Hostname: " hostname
 
 #Prompt user for username
-printf "\e[1;32mPlease provide a user name (this will be the name you login with when installation is complete)\e[0m\n"
+printf "\e[1;36mPlease provide a user name \e[33m(this will be the name you login with when installation is complete)\e[0m\n"
 read -p "Username: " username
 
 
@@ -36,7 +36,7 @@ do
 		printf "\n\e[1;31mError: Passwords do match please try again\e[0m\n\n"
 	else
 		rootpassword=$rp1
-		printf '\n\e[1;32mPassword has been set for\e[33m"root"\e[32m system account\e[0m\n\n'
+		printf '\n\e[1;32mPassword has been set for\e[33m "root"\e[32m system account\e[0m\n\n'
 	
 		break
 	fi
