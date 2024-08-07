@@ -20,12 +20,59 @@ printf "\e[1;32mPlease provide a user name (this will be the name you login with
 read -p "Username: " username
 
 #Prompt user for root password
-printf '\e[1;31mPlease provide a\e[33m "root" \e[31mpassword\e[0m\n' 
-read -sp "Root Password: " rootpassword
+#printf '\e[1;31mPlease provide a\e[33m "root" \e[31mpassword\e[0m\n' 
+#read -sp "Root Password: " rootpassword
 
 #prompt user for user password
-printf '\e[1;31mPlease provide a user password for the user \e[33m"'$username'"\e[0m\n'
-read -sp "User Password:" userpassword
+#printf '\e[1;31mPlease provide a user password for the user \e[33m"'$username'"\e[0m\n'
+#read -sp "User Password:" userpassword
+
+#Setting root password
+vrp=0
+while [vpr=0]
+do
+	#Promt user for a root password
+	printf '\e[1;36mPlease enter a password for the \e[33m"root"\e[36m system account.\e[0m\n'
+	read -sp "Password: " rp1
+	#Promt user to verify root password
+	printf '\n\e[1;36mPleas verify password for the \e[33m"root"\e[36m system account.\e[0m\n'
+	read -sp "Verify password" rp2
+	#check passwords entetered match
+	if ["$rp1" != "$rp2"]; then
+		#restart setting password process
+		vrp=0
+		printf '\n\e[1;31mERROR: Passwords do match, Please try again.\e[0m\n\n'
+	else
+		#set root password to first password entered
+		rootpassword=$rp1
+		printf '\n\e[1;32mPassword for \e[33m"root" \e32maccout set\e[0m\n\n'
+		break
+	fi
+done
+
+
+#Setting User password
+vup=0
+while [vur=0]
+do
+	#Promt user for a user password
+	printf '\e[1;36mPlease enter a password for the user accuout \e[33m"'$username'"\e[0m\n'
+	read -sp "Password: " up1
+	#Promt user to verify user password
+	printf '\n\e[1;36mPleas verify password for the user account\e[33m"'$username'"\e[0m\n'
+	read -sp "Verify password" up2
+	#check passwords entetered match
+	if ["$up1" != "$up2"]; then
+		#restart setting password process
+		vup=0
+		printf '\n\e[1;31mERROR: Passwords do match, Please try again.\e[0m\n\n'
+	else
+		#set user password to first password entered
+		userpassword=$up1
+		printf '\n\e[1;32mPassword for the user account \e[33m "'$username'"\e32m has been set\e[0m\n\n'
+		break
+	fi
+done
 
 #Set the timezone to Pacific/Auckland (New Zealand)
 ln -sf /usr/share/zoneinfo/Pacific/Auckland /etc/localtime
@@ -41,12 +88,12 @@ locale-gen
 echo "LANG=en_NZ.UTF-8" >> /etc/locale.conf
 
 #Set Hostname
-echo "Einarr-Desktop" >> /etc/hostname
+echo "$hostname" >> /etc/hostname
 
 #Set hosts file (Network configuration)
 echo "127.0.0.1 localhost" >> /etc/hosts
 echo "::1 localhost" >> /etc/hosts
-echo "127.0.1.1 Einarr-Desktop.localdomain Einarr-Desktop" >> /etc/hosts
+echo "127.0.1.1 $hostname.localdomain $hostname" >> /etc/hosts
 
 #Install base system packages for bootloader,network manager etc
 pacman -S --noconfirm grub efibootmgr dosfstools mtools os-prober networkmanager bash-completion
