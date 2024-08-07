@@ -36,7 +36,7 @@ do
 		printf "\n\e[1;31mError: Passwords do match please try again\e[0m\n\n"
 	else
 		rootpassword=$rp1
-		printf '\n\e[1;32mPassword has been set for\e[33m"root"\e36m system account\e[0m\n\n'
+		printf '\n\e[1;32mPassword has been set for\e[33m"root"\e[32m system account\e[0m\n\n'
 	
 		break
 	fi
@@ -58,7 +58,7 @@ do
 		vup=0
 	else
 		userpassword=$up1
-		printf '\n\e[1;32Pasword has set for the user account \e[33m"'$username'".\e[0m\n\n'
+		printf '\n\e[1;32mPasword has set for the user account \e[1;33m"'$username'".\e[0m\n\n'
 		break
 	fi
 done
