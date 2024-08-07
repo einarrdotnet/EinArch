@@ -113,9 +113,9 @@ sed -i '102s/.//' /etc/lightdm/lightdm.conf
 sed -i 's/example-gtk-gnome/lightdm-slick-greeter/' /etc/lightdm/lightdm.conf
 mkdir -p /home/$username/{Downloads/Gitclones,Documents,Music,Pictures,Projects}
 chown -R $username:$username /home/$username/*
-cp -r /EinArch/cinnamon-desktop-files/themes/* /usr/share/themes/.
-cp -r /EinArch/cinnamon-desktop-files/icons/* /usr/share/icons/.
-rm -rf /EinArch
+#cp -r /EinArch/cinnamon-desktop-files/themes/* /usr/share/themes/.
+#cp -r /EinArch/cinnamon-desktop-files/icons/* /usr/share/icons/.
+#rm -rf /EinArch
 printf '\n\e[1;36mDesktop installation complete, type \e[33m"rebot" 
 \e[36m to restart your pc and loading into you new desktop
 to boot into your new installation of EinArach type\e[33m"exit" \e[36m the hit \e[33m"enter"
