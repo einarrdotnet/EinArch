@@ -50,7 +50,7 @@ do
 	printf '\e[1;36mPease provide a password for the user account \e[33m"'$username'"\e[36m.\e[0m\n'
 	read -sp "password: " up1
 	#prompt user to verify password for user account
-	printf '\n\e[1;36mPlease verify password. for the user account \e[33m"'$username'"\e[36m\e[0m\n'
+	printf '\n\e[1;36mPlease verify password. for the user account \e[33m"'$username'"\e[36m.\e[0m\n'
 	read -sp "Verify Password: " up2
 
 	if [ "$up1" != "$up2" ]; then 
@@ -58,12 +58,12 @@ do
 		vup=0
 	else
 		userpassword=$up1
-		printf '\n\e[1;32mPasword has set for the user account \e[1;33m"'$username'".\e[0m\n\n'
+		printf '\n\e[1;32mPasword has set for the user account \e[1;33m"'$username'"\e[32m.\e[0m\n\n'
 		break
 	fi
 done
 
-
+sleep 3
 
 #Set the timezone to Pacific/Auckland (New Zealand)
 ln -sf /usr/share/zoneinfo/Pacific/Auckland /etc/localtime
