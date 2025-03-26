@@ -1,6 +1,7 @@
 # EinArch
 
-**IMPORTANT !**
+**IMPORTANT - THIS PROJECT HAS BEEN ENDED IN FAVOUR OF A HYPERLAND VERSION (EinArch V2) !**
+
 
 EinArch is repository designed for my own personal. use it conatains scripts and configs and files designed to aid in a Arch Linux installation for my specific system to my specific preference. anyone is more than welcome to clone it and use it however i suggest you read the contents of any script file before executing it and make changes pertaining to your system.
 
